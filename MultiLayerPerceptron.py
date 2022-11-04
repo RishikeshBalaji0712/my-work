@@ -171,16 +171,7 @@ class App(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
 
     def createTable(self):
-        method = input("Enter the model to be used: MLP, KNN, DT: ")
-        if (method == 'MLP'):
-            arr = MLP(self.openFileNameDialog())
-        elif (method == 'KNN'):
-            arr = KNN(self.openFileNameDialog())
-        elif (method == 'DT'):
-            arr = DecisionTree((self.openFileNameDialog()))
-        else:
-            print ('The default model MLP will be used as the method entered is invalid.')
-            arr = MLP(self.openFileNameDialog())
+        arr = MLP(self.openFileNameDialog())
         self.tableWidget = QTableWidget()
         self.tableWidget.setRowCount(len(arr))
         self.tableWidget.setColumnCount(6)
